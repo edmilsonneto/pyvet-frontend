@@ -9,37 +9,38 @@ declare var webkitSpeechRecognition: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pyvet-frontend';
+  title = 'Pyvet';
 
   recognition = new webkitSpeechRecognition();
   transcript = '';
   isRecording = false;
+  btnText = 'Iniciar Reconhecimento de Fala';
+  textareaText = '';
 
 
   constructor(private pivetService: PyvetService) { }
 
 
   startRecognition(): void {
-    this.transcript = ''
+    this.transcript = '';
     this.recognition.lang = 'pt-BR';
     this.recognition.start();
     this.isRecording = true;
-    this.recognition.onresult = (event: { results: { transcript: string; }[][]; }) => {
+    this.btnText = 'Processando...';
+
+    this.recognition.onresult = (event: { results: { transcript: string }[][] }) => {
       this.transcript = event.results[0][0].transcript;
+      console.log('TRANSCRIPT NA CHAMADA', this.transcript);
 
-      this.stopRecognition();
-    }
-  }
-
-  stopRecognition(): void {
-    this.isRecording = false;
-    this.recognition.stop();
-    // this.speach();
-    this.pivetService.sendMessage(this.transcript)
-      .subscribe(data => {
+      this.isRecording = false;
+      this.recognition.stop();
+      this.pivetService.sendMessage(this.transcript).subscribe((data) => {
         this.transcript = data.response;
         this.speach();
+        this.btnText = 'Iniciar Reconhecimento de Fala';
+        this.textareaText = this.transcript;
       });
+    };
   }
 
   speach() {
