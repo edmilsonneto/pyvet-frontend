@@ -1,0 +1,10 @@
+{
+  "/api/*": {
+    "target": "http://localhost:5000/api/chat",
+    "secure": false,
+    "changeOrigin": true,
+    "headers": {
+      "Origin": "null"
+    }
+  }
+}
