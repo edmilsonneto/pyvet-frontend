@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "dev": "concurrently \"json-server --watch back-end/db.json\"  \"ng serve --host 0.0.0.0 --configuration development -o\" ",
+    "dev": "concurrently \"json-server --watch back-end/db.json --routes back-end/routes.json\"  \"ng serve --host 0.0.0.0 --configuration development -o\" ",
     "build": "ng build --output-path dist/pyvet/",
     "b:watch": "ng build --watch --configuration development",
     "test": "ng test",

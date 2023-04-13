@@ -1,11 +1,12 @@
 {
-  "user":
-      {
-          "id": 1,
-          "username": "test@test.com",
-          "password": "123123",
-          "balance": 13000.05,
-          "cpf": "498.438.110-89"
-      }
-
+  "user": {
+    "id": 1,
+    "username": "test@test.com",
+    "password": "123123",
+    "balance": 13000.05,
+    "cpf": "498.438.110-89"
+  },
+  "chat": {
+    "prompt": "eu gostaria de ser muito rico"
+  }
 }

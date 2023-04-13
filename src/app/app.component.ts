@@ -32,7 +32,7 @@ export class AppComponent {
       this.isRecording = !this.isRecording;
       recognition.stop();
       this.pivetService.sendMessage(this.transcript).pipe(
-        tap(e => this.successFunc(e.response))
+        tap(e => this.successFunc(e.prompt))
       ).subscribe();
     };
   }
@@ -44,6 +44,7 @@ export class AppComponent {
   }
 
   successFunc(response: string): void {
+    console.log('success: ', response);
     this.textareaText = response;
     this.speach();
     this.btnText = 'Iniciar Reconhecimento de Fala';
