@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api: 'http://localhost:3000'
+  api: 'http://localhost:3000',
+  testProd: 'https://oacxec8t30.execute-api.sa-east-1.amazonaws.com/dev/dev'
 };
 
 /*

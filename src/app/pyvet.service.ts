@@ -13,6 +13,6 @@ export class PyvetService {
 
   sendMessage(prompt: string): Observable<any> {
     const body = { prompt };
-    return this.http.post<any>(`${environment.api}/${this.endpoint}`, body);
+    return this.http.post<any>(`${environment.testProd}/${this.endpoint}`, body);
   }
 }
